@@ -63,5 +63,6 @@ public class LoginPage {
     	wt.until(ExpectedConditions.visibilityOfElementLocated(myAccountBtn));
     	Assert.assertTrue(driver.findElement(myAccountBtn).isDisplayed());
     }
+    // making changes to check 
     
 }
