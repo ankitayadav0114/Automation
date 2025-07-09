@@ -24,3 +24,6 @@ jobs:
 
       - name: Run Tests
         run: mvn test
+
+      - name: Generate Surefire Report
+        run: mvn surefire-report:report
