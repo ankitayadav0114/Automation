@@ -89,6 +89,14 @@
   </dependencies>
 
   <build>
+  
+  
+  
+  
+  
+  
+  
+  
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -101,13 +109,29 @@
                     <testFailureIgnore>true</testFailureIgnore>
                     <includes>
                         <include>**/TestNGCucumberRunner.java</include>
+                        
+                    <include>**/*Test.java</include>
+                    <include>**/*Tests.java</include>
+                    <include>**/*TestCase.java</include>
+                    <include>**/*Runner.java</include>
+
+                        
                     </includes>
        </configuration>
-
-        
-        
-        
       </plugin>
+      
+      
+      
+        <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>3.2.5</version> 
+                 </plugin>
+      
+      
+      
+      
+      
     </plugins>
   </build>
 </project>
