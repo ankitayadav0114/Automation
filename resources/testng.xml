@@ -2,7 +2,7 @@
 <suite name="CucumberTestNGSuite" verbose="1">
     <test name="Cucumber Tests">
         <classes>
-            <class name="runner.TestRunner" />
+            <class name="runner.TestRunner"/>  
         </classes>
     </test>
 </suite>
