@@ -109,6 +109,13 @@
                     <testFailureIgnore>true</testFailureIgnore>
                     <includes>
                         <include>**/TestNGCucumberRunner.java</include>
+                        
+                    <include>**/*Test.java</include>
+                    <include>**/*Tests.java</include>
+                    <include>**/*TestCase.java</include>
+                    <include>**/*Runner.java</include>
+
+                        
                     </includes>
        </configuration>
       </plugin>
