@@ -1,0 +1,29 @@
+name: Java CI - run on each push to main
+
+on:
+  push:
+    branches: [ main ]  # Triggers on every push to 'main'
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest   # ✅ Use Windows environment
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '8'  # You can change to your actual version
+
+      - name: Set up Maven
+        uses: s4u/setup-maven-action@v1
+        with:
+          maven-version: '3.9.5'  # Optional, can omit if Maven is already available
+
+      - name: Build Project
+        run: mvn clean install
+
+      - name: Run Tests
+        run: mvn test
