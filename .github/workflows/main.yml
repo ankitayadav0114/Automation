@@ -17,10 +17,6 @@ jobs:
         with:
           java-version: '8'  # You can change to your actual version
 
-      - name: Set up Maven
-        uses: s4u/setup-maven-action@v1
-        with:
-          maven-version: '3.9.5'  # Optional, can omit if Maven is already available
 
       - name: Build Project
         run: mvn clean install
