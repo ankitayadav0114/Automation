@@ -18,7 +18,6 @@ jobs:
           distribution: 'temurin'  # ✅ Required
           java-version: '11'
 
-
       - name: Build Project
         run: mvn clean install
 
@@ -27,3 +26,24 @@ jobs:
 
       - name: Generate Surefire Report
         run: mvn surefire-report:report
+
+      - name: Upload Surefire Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: surefire-report
+          path: target/site/surefire-report.html
+
+      - name: Send Surefire Report via Email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: 'Surefire Test Report from GitHub Actions'
+          to: ${{ secrets.EMAIL_TO }}
+          from: ${{ secrets.EMAIL_USERNAME }}
+          content_type: text/html
+          body: |
+            <p>The Surefire report from the latest workflow run is attached.</p>
+          attachments: target/site/surefire-report.html
